@@ -68,6 +68,6 @@ El lote se ejecutaría manualmente al recibir cada archivo mensual; no se diseñ
 
 ## Evidencia y límites
 
-El EDA calculó 109.950.743 filas y 13,668 GiB sin comprimir para los dos meses locales. El detalle de calidad, funnel y métricas está en [`analisis_exploratorio_fase1.md`](analisis_exploratorio_fase1.md) y `data/output/eda_summary.json`. La guía académica está en [`proyecto_final_big_data_2.md`](proyecto_final_big_data_2.md).
+El EDA calculó 109.950.743 filas y 13,668 GiB sin comprimir para los dos meses locales. El detalle de calidad, funnel y métricas está en [`analisis_exploratorio_fase1.md`](analisis_exploratorio_fase1.md) y `data/output/eda_summary.json`. La guía académica se usó como referencia local, pero no se versiona en el repositorio.
 
 Las decisiones comerciales son hipótesis a validar. No hay datos de órdenes contables, margen, inventario, costos, campañas ni tráfico en vivo. La tasa de `price` en compras es una suma de eventos, y las comparaciones temporales se limitan a dos meses en UTC.

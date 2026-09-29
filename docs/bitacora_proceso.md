@@ -7,7 +7,7 @@ Este documento registra qué se hizo, por qué se tomó cada decisión y cómo r
 - Dataset: `eCommerce behavior data from multi category store`, REES46/Kaggle.
 - Archivos disponibles y procesados: octubre y noviembre de 2019. No se descargaron meses adicionales.
 - El curso exige Spark sobre conjuntos mayores a 10 millones de filas. Octubre tiene 42.448.764 y noviembre 67.501.979; juntos, 109.950.743 antes de deduplicar.
-- La ruta solicitada inicialmente, `docs/proyecto_final_big_data.md`, no existe; la guía local que se leyó completa es `docs/proyecto_final_big_data_2.md`.
+- La ruta solicitada inicialmente, `docs/proyecto_final_big_data.md`, no existe; se trabajó con la guía académica local disponible durante el desarrollo. Esa guía no se versiona en el repositorio porque no es producción propia del equipo.
 - No se usan Pandas para leer los CSV. No estaba instalado al comenzar Fase 1; Streamlit lo incorporó después como dependencia indirecta, pero la app usa Spark y tablas Gold pequeñas, no los eventos en Pandas. Los datos originales siguen bajo `data/raw/` y están ignorados por Git.
 
 ## Fase 1 — Exploración y diseño arquitectónico (completada)
@@ -94,9 +94,9 @@ La suite cubre tanto EDA como transformación de tipos, deduplicación, nulos pe
 
 ## Repositorio y protección de datos
 
-Se inicializó el repositorio Git local en la rama `main`, sin remoto ni commits. `.gitignore` excluye `.venv/`, `data/raw/`, `data/processed/`, cachés y logs JVM. Los archivos de código, documentación, notebook, resumen pequeño y adaptador local quedan visibles para control de versiones. Antes de publicar, se debe revisar el contenido de `git status` y confirmar que ningún CSV o Parquet se añada.
+El repositorio quedó publicado en GitHub en la rama `main`. `.gitignore` excluye `.venv/`, `data/raw/`, `data/demo/`, `data/processed/`, cachés y logs JVM. Los archivos de código, documentación, notebook, resumen pequeño, presentación, evidencia ligera y adaptador local quedan visibles para control de versiones. Antes de publicar nuevos cambios, se debe revisar `git status` y confirmar que ningún CSV, Parquet, modelo generado o entorno virtual se añada.
 
-## Fase 3 — Modelo y dashboard completados; diapositivas pendientes
+## Fase 3 — Modelo, dashboard y presentación completados
 
 ### Modelo ML
 
@@ -116,4 +116,4 @@ Se inicializó el repositorio Git local en la rama `main`, sin remoto ni commits
 - El smoke test de Streamlit encontró 0 excepciones, 9 métricas y 7 gráficos Plotly.
 - Inicio local: `python -m streamlit run dashboard/app.py`.
 
-Las diapositivas siguen pendientes, tal como acordó el equipo. Antes de presentarlas, se deben explicar la definición del target, el muestreo, la división temporal y la baja precisión del modelo; no se debe resumir solo el ROC-AUC ni describir el modelo como causal.
+La presentación ejecutiva quedó en `docs/big_data_poyecto_final.pptx`. Antes de presentarla, se deben ensayar la demo de Streamlit y la explicación de la definición del target, el muestreo, la división temporal y la baja precisión del modelo; no se debe resumir solo el ROC-AUC ni describir el modelo como causal.

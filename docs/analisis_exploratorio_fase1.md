@@ -4,7 +4,7 @@
 
 Se analizaron con Spark los dos CSV disponibles localmente: octubre y noviembre de 2019. El archivo `data/raw/archive.zip` contiene copias comprimidas de esos mismos dos meses; no se contó dos veces. Los CSV originales se conservaron sin modificaciones.
 
-La guía del curso está en `docs/proyecto_final_big_data_2.md`. Su estimación publicada para el dataset completo es aproximadamente 7,5 GB y más de 285 millones de eventos entre octubre de 2019 y abril de 2020. Esa cifra es contexto publicado, no el tamaño ni el conteo calculado de los archivos locales.
+La guía del curso se usó como referencia académica local, pero no se versiona en el repositorio. Su estimación publicada para el dataset completo es aproximadamente 7,5 GB y más de 285 millones de eventos entre octubre de 2019 y abril de 2020. Esa cifra es contexto publicado, no el tamaño ni el conteo calculado de los archivos locales.
 
 ### Método reproducible
 

@@ -2,6 +2,52 @@
 
 Proyecto final de Electiva Profesional IV (Big Data), Ingeniería de Sistemas. El caso analiza el recorrido de visitas a productos y compras de una tienda online multicategoría.
 
+## Inicio rápido para el equipo
+
+Estos pasos son para clonar el proyecto en otro computador y dejarlo listo para ejecutar. Los datos originales no están en Git por tamaño; cada integrante debe ubicarlos localmente.
+
+Requisitos probados:
+
+- Python 3.11.
+- Java instalado y disponible para Spark; el proyecto fue probado con Java 23 en Windows.
+- PowerShell en Windows.
+- Los archivos `2019-Oct.csv` y `2019-Nov.csv` en `data/raw/`.
+
+Desde PowerShell:
+
+```powershell
+git clone https://github.com/marlonstv120/ecommerce-big-data.git
+cd ecommerce-big-data
+
+python -m venv .venv
+& ".\.venv\Scripts\Activate.ps1"
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m ipykernel install --prefix .venv --name ecommerce-big-data --display-name "Python 3.11 (eCommerce Big Data)"
+```
+
+Después crea la carpeta de datos y copia allí los CSV descargados de Kaggle:
+
+```powershell
+New-Item -ItemType Directory -Force "data\raw"
+```
+
+La estructura esperada es:
+
+```text
+data/raw/2019-Oct.csv
+data/raw/2019-Nov.csv
+```
+
+Para verificar que el entorno quedó bien:
+
+```powershell
+python -m unittest discover -s tests -v
+python -m pip check
+```
+
+`data/raw/`, `data/processed/`, `data/demo/` y `.venv/` están ignorados por Git. No se deben subir los CSV, Parquet generados, modelo entrenado ni el entorno virtual.
+
 ## Dataset y alcance local
 
 - **Dataset:** `eCommerce behavior data from multi category store`.
@@ -17,7 +63,7 @@ El análisis y sus límites están en [`docs/analisis_exploratorio_fase1.md`](do
 
 ## Fase 1: reproducir el análisis
 
-El entorno de Python 3.11.9 existente en `.venv/` se conserva. Las versiones directas instaladas y probadas están registradas en [`requirements.txt`](requirements.txt). No se usa Pandas para leer los CSV.
+El entorno de Python se crea localmente en `.venv/`. Las versiones directas instaladas y probadas están registradas en [`requirements.txt`](requirements.txt). No se usa Pandas para leer los CSV.
 
 En PowerShell, desde la raíz del proyecto:
 
@@ -79,16 +125,16 @@ python -m streamlit run dashboard\app.py
 
 El dashboard lee solo Gold y las métricas compactas del modelo; ofrece filtros de mes, fecha y categoría, KPIs, funnel, compras por periodo/categoría y visualizaciones de evaluación del modelo. Streamlit instala Pandas indirectamente, pero la app no usa Pandas para cargar eventos ni lee los CSV raw.
 
-La **presentación ejecutiva y las diapositivas aún están pendientes**. No hay dashboard alojado en cloud ni servicio continuo; todo corre localmente.
+La presentación ejecutiva está en `docs/big_data_poyecto_final.pptx`. No hay dashboard alojado en cloud ni servicio continuo; todo corre localmente.
 
 ## Arquitectura recomendada
 
-El diseño usa un Data Lake local con organización Medallion, ELT y Batch. La comparación de Warehouse/Lake/Lakehouse y el diagrama de seis capas están en [`docs/arquitectura_fase1.md`](docs/arquitectura_fase1.md). Streamlit se implementó como dashboard local de la Fase 3; el artefacto todavía pendiente de esa fase son las diapositivas ejecutivas.
+El diseño usa un Data Lake local con organización Medallion, ELT y Batch. La comparación de Warehouse/Lake/Lakehouse y el diagrama de seis capas están en [`docs/arquitectura_fase1.md`](docs/arquitectura_fase1.md). Streamlit se implementó como dashboard local de la Fase 3 y la presentación ejecutiva quedó incluida como archivo PowerPoint.
 
 **Nota de estructura:** el proyecto ya tenía una carpeta vacía llamada `data/proccesed/` (con esa ortografía). No se renombró ni se usó; la ruta recomendada para futuras capas es `data/processed/`, actualmente protegida por `.gitignore`.
 
 ## Datos y entorno local
 
-Los CSV originales y el entorno `.venv/` se mantienen locales. `.gitignore` excluye `data/raw/`, `data/processed/` y `.venv/`; no se deben subir los datasets ni el entorno virtual al repositorio. Los resultados resumidos de `data/output/` no contienen filas de eventos.
+Los CSV originales y el entorno `.venv/` se mantienen locales. `.gitignore` excluye `data/raw/`, `data/demo/`, `data/processed/` y `.venv/`; no se deben subir los datasets, muestras locales, Parquet, modelos entrenados ni el entorno virtual al repositorio. Los resultados resumidos de `data/output/` no contienen filas de eventos.
 
-Se inicializó el repositorio Git local en `main`; aún no tiene commits ni remoto configurado. Antes de preparar un commit, revisar `git status --short` y añadir únicamente código, documentación y resultados resumidos.
+El repositorio remoto público está en <https://github.com/marlonstv120/ecommerce-big-data>. Antes de preparar nuevos commits, revisar `git status --short` y añadir únicamente código, documentación, presentación, evidencias ligeras y resultados resumidos.
