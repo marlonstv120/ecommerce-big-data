@@ -1,0 +1,4 @@
+event_time,event_type,product_id,category_id,category_code,brand,price,user_id,user_session
+2019-10-01 10:00:00 UTC,view,1,10,category.one,brand_a,10.00,101,session-1
+2019-10-01 10:01:00 UTC,cart,1,10,category.one,brand_a,10.00,101,session-1
+2019-10-01 10:02:00 UTC,purchase,1,10,category.one,brand_a,10.00,101,session-1

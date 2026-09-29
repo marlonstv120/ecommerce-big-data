@@ -1,0 +1,9 @@
+pyspark==4.0.1
+jupyterlab==4.6.4
+ipykernel==7.3.0
+matplotlib==3.11.2
+streamlit==1.64.0
+plotly==7.1.0
+# Streamlit transitive runtime dependencies; neither is used to load raw CSV events.
+pandas==3.0.6
+pyarrow==25.0.1

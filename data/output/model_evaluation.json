@@ -1,0 +1,187 @@
+{
+  "generated_at_utc": "2026-09-28T18:33:47.588407+00:00",
+  "engine": {
+    "name": "Spark MLlib",
+    "spark_version": "4.0.1"
+  },
+  "model": "weighted logistic regression",
+  "model_path": "C:\\Users\\marlon.velasco\\Downloads\\Programas\\ecommerce-big-data\\data\\processed\\models\\session_purchase_after_5m",
+  "target_definition": "compra con event_time >= session_start + 5 minutos; sesiones con compra previa al corte excluidas",
+  "features_definition": "actividad no-purchase observada estrictamente antes de los primeros 5 minutos; sin user_id/product_id como identificador predictivo",
+  "sampling": {
+    "deterministic_session_hash_percent": 2,
+    "sampled_event_rows": 2200530,
+    "eligible_session_examples": 442245
+  },
+  "temporal_split": {
+    "train_month": "2019-10",
+    "test_month": "2019-11",
+    "train_class_counts": {
+      "1": 4043,
+      "0": 173008
+    },
+    "test_class_counts": {
+      "1": 5411,
+      "0": 259783
+    }
+  },
+  "class_weights": {
+    "0": 0.5116844307777675,
+    "1": 21.895993074449667
+  },
+  "decision_threshold": 0.5,
+  "metrics": {
+    "precision": 0.04959251770718335,
+    "recall": 0.7388652744409536,
+    "f1": 0.0929464825405682,
+    "accuracy": 0.7057550321651319,
+    "roc_auc": 0.7960622801704268,
+    "pr_auc": 0.0965087686899141,
+    "confusion_matrix": {
+      "true_positive": 3998,
+      "false_positive": 76619,
+      "true_negative": 183164,
+      "false_negative": 1413
+    }
+  },
+  "score_deciles": [
+    {
+      "decile": 1,
+      "actual_label": 0,
+      "session_count": 1800
+    },
+    {
+      "decile": 1,
+      "actual_label": 1,
+      "session_count": 3
+    },
+    {
+      "decile": 2,
+      "actual_label": 0,
+      "session_count": 35269
+    },
+    {
+      "decile": 2,
+      "actual_label": 1,
+      "session_count": 102
+    },
+    {
+      "decile": 3,
+      "actual_label": 0,
+      "session_count": 95783
+    },
+    {
+      "decile": 3,
+      "actual_label": 1,
+      "session_count": 573
+    },
+    {
+      "decile": 4,
+      "actual_label": 0,
+      "session_count": 50312
+    },
+    {
+      "decile": 4,
+      "actual_label": 1,
+      "session_count": 735
+    },
+    {
+      "decile": 5,
+      "actual_label": 0,
+      "session_count": 37421
+    },
+    {
+      "decile": 5,
+      "actual_label": 1,
+      "session_count": 933
+    },
+    {
+      "decile": 6,
+      "actual_label": 0,
+      "session_count": 22937
+    },
+    {
+      "decile": 6,
+      "actual_label": 1,
+      "session_count": 1084
+    },
+    {
+      "decile": 7,
+      "actual_label": 0,
+      "session_count": 9080
+    },
+    {
+      "decile": 7,
+      "actual_label": 1,
+      "session_count": 694
+    },
+    {
+      "decile": 8,
+      "actual_label": 0,
+      "session_count": 4956
+    },
+    {
+      "decile": 8,
+      "actual_label": 1,
+      "session_count": 807
+    },
+    {
+      "decile": 9,
+      "actual_label": 0,
+      "session_count": 2225
+    },
+    {
+      "decile": 9,
+      "actual_label": 1,
+      "session_count": 480
+    }
+  ],
+  "feature_coefficients": [
+    {
+      "feature": "log_views_5m",
+      "coefficient": 0.8275328604169397
+    },
+    {
+      "feature": "log_carts_5m",
+      "coefficient": 1.885533169713126
+    },
+    {
+      "feature": "log_removals_5m",
+      "coefficient": 0.0
+    },
+    {
+      "feature": "log_unique_products_5m",
+      "coefficient": 0.1130677193728969
+    },
+    {
+      "feature": "log_unique_categories_5m",
+      "coefficient": -0.04223044954051273
+    },
+    {
+      "feature": "mean_view_price_5m",
+      "coefficient": -0.0004328616251014288
+    },
+    {
+      "feature": "hour_sin",
+      "coefficient": 0.19247836054451128
+    },
+    {
+      "feature": "hour_cos",
+      "coefficient": -0.08019967759599803
+    },
+    {
+      "feature": "weekday_sin",
+      "coefficient": -0.005268670880122998
+    },
+    {
+      "feature": "weekday_cos",
+      "coefficient": 0.06627168973245715
+    }
+  ],
+  "limitations": [
+    "Las métricas evalúan una muestra hash determinista del 2 % por defecto.",
+    "La prueba temporal usa octubre para entrenamiento y noviembre para test.",
+    "La predicción se refiere a compras posteriores a la ventana de observación de cinco minutos.",
+    "Una probabilidad no demuestra causalidad ni garantiza una compra."
+  ]
+}

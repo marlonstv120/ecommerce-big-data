@@ -1,0 +1,62 @@
+{
+  "generated_at_utc": "2026-09-28T22:03:48.819492+00:00",
+  "engine": {
+    "name": "PySpark",
+    "version": "4.0.1",
+    "mode": "local[2]"
+  },
+  "storage_format": "Parquet",
+  "bronze": {
+    "input_files": [
+      "2019-Oct-100k.csv"
+    ],
+    "raw_modified": false
+  },
+  "silver": {
+    "path": "C:\\Users\\marlon.velasco\\Downloads\\Programas\\ecommerce-big-data\\data\\processed\\demo_100k\\silver\\events",
+    "rows": 99983,
+    "partition_column": "event_month"
+  },
+  "gold": {
+    "path": "C:\\Users\\marlon.velasco\\Downloads\\Programas\\ecommerce-big-data\\data\\processed\\demo_100k\\gold",
+    "outputs": {
+      "funnel_by_month": "C:\\Users\\marlon.velasco\\Downloads\\Programas\\ecommerce-big-data\\data\\processed\\demo_100k\\gold\\funnel_by_month",
+      "funnel_by_utc_weekday_hour": "C:\\Users\\marlon.velasco\\Downloads\\Programas\\ecommerce-big-data\\data\\processed\\demo_100k\\gold\\funnel_by_utc_weekday_hour",
+      "purchases_by_category": "C:\\Users\\marlon.velasco\\Downloads\\Programas\\ecommerce-big-data\\data\\processed\\demo_100k\\gold\\purchases_by_category",
+      "purchases_by_category_day": "C:\\Users\\marlon.velasco\\Downloads\\Programas\\ecommerce-big-data\\data\\processed\\demo_100k\\gold\\purchases_by_category_day",
+      "purchases_by_utc_time": "C:\\Users\\marlon.velasco\\Downloads\\Programas\\ecommerce-big-data\\data\\processed\\demo_100k\\gold\\purchases_by_utc_time"
+    },
+    "row_counts": {
+      "funnel_by_month": 1,
+      "funnel_by_utc_weekday_hour": 5,
+      "purchases_by_category": 76,
+      "purchases_by_category_day": 76,
+      "purchases_by_utc_time": 4
+    }
+  },
+  "input_files": [
+    "2019-Oct-100k.csv"
+  ],
+  "input_file_bytes": {
+    "2019-Oct-100k.csv": 13352959
+  },
+  "source_rows": 100000,
+  "valid_rows_before_dedup": 100000,
+  "rejected_rows": 0,
+  "duplicate_method": "SHA-256 sobre JSON canónico de las nueve columnas; colisiones criptográficas despreciables",
+  "quality_counts": {
+    "corrupt_rows": 0,
+    "invalid_timestamp_rows": 0,
+    "unexpected_event_type_rows": 0,
+    "invalid_product_id_rows": 0,
+    "invalid_category_id_rows": 0,
+    "invalid_user_id_rows": 0,
+    "invalid_price_rows": 0,
+    "nonpositive_price_rows": 119,
+    "missing_category_code_rows": 32587,
+    "missing_brand_rows": 14391,
+    "missing_user_session_rows": 0
+  },
+  "silver_rows": 99983,
+  "duplicate_excess_rows_removed": 17
+}
